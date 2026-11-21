@@ -20,11 +20,24 @@ Use Node.js 22.18 or newer. Import `run({ text, header })` from `solve.js`, or r
 
 [make.fun 赛事 / Original bounty](https://make.fun/bounty/csv-reader-speed-01-run-20261121)
 
-## Example / 示例
+## 示例 / Example
 
 ```sh
 node --input-type=module -e "import { run } from './solve.js'; console.log(JSON.stringify(run({ text: 'name,score\nAda,42', header: true })))"
 ```
+
+## 结果字段 / Output fields
+
+| 字段或代码 / Field or code | 中文 | English |
+| --- | --- | --- |
+| `columns` | 表头列名（无表头时为 null） | Column names, or null without a header |
+| `rows` | 解析出的记录 | Parsed records |
+| `errors` | 诊断列表 | Diagnostic list |
+| `unterminated_quote` | 引号未闭合 | Unclosed quoted field |
+| `stray_cr` | 孤立的回车符 | Isolated carriage return |
+| `quote_junk` | 引号后有多余内容 | Unexpected text after a quote |
+| `short_row` | 字段少于预期 | Too few fields |
+| `long_row` | 字段多于预期 | Too many fields |
 
 ## 许可证 / License
 
